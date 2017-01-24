@@ -1,0 +1,1 @@
+# NUSMods-Free-Slot-Finder
