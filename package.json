@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Waffleboy/NUSMods-Free-Slot-Finder#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.79.0"
   }
 }
