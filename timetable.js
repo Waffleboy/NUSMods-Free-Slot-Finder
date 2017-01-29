@@ -1,4 +1,4 @@
-const api = require ('api');
+const api = require('./api.js');
 
 function TimeTable(){
     // 13*2 half an hour blocks starting at 8am, for 5 days a week
@@ -53,43 +53,13 @@ function TimeTable(){
 
     this.queryAPI = function(url){
         // returns the hash
-        testCase = {'CS2100':[{'type': "lecture",
-                        'timestart': 1900,
-                        'timeend': 2000,
-                        'Venue':'potatoland',
-                        'WeekText':'every week',
-                        'DayText':"Monday"
-                        },
-                        {'type': "tutorial",
-                        'timestart': 0900,
-                        'timeend': 1000,
-                        'Venue':'potatoland2',
-                        'WeekText':'every week',
-                        'DayText':"Tuesday"
-                        },
-                        {'type': "lab",
-                        'timestart': 1300,
-                        'timeend': 1530,
-                        'Venue':'potatoland2',
-                        'WeekText':'alternate week',
-                        'DayText':"Wednesday"
-                        }],
-                    'ACC1002X':[{'type': "lecture",
-                        'timestart': 1200,
-                        'timeend': 1300,
-                        'Venue':'potatoland',
-                        'WeekText':'every week',
-                        'DayText':"Thursday"
-                        },
-                        {'type': "seminar",
-                        'timestart': 0900,
-                        'timeend': 1000,
-                        'Venue':'potatoland2',
-                        'WeekText':'every week',
-                        'DayText':"Friday"
-                        }]
-                    };
-        return(testCase);
+        api.parse(url, (err, obj) => {
+          if (err) {
+            console.log(err);
+          }
+          return (obj);
+        });
+        console.log("Error occured");
     }
 
     this.createArray = function(x,y) {
@@ -144,7 +114,7 @@ function TimeTable(){
     this.endingTime = this.beginningTime + (this.xAxisBlocks * 50);
     this.timetableArray = this.createArray(this.xAxisBlocks,this.yAxisBlocks);
 }
-/*
+
 z = new TimeTable();
-z.populateTimetableWithURL("url");
-console.log(z.findFreeSlots());*/
+z.populateTimetableWithURL("https://nusmods.com/timetable/2016-2017/sem2?BT4211[LEC]=1&BT4221[LEC]=1&BT4222[LEC]=1");
+console.log(z.findFreeSlots());

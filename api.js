@@ -2,7 +2,7 @@ const url = require('url');
 const request = require('request');
 
 // dummies + sample call
-const tt = 'https://nusmods.com/timetable/2016-2017/sem2?CS2107[LEC]=1&CS2107[TUT]=3&CS2102[LEC]=1&CS2102[TUT]=1&SSS1207[LEC]=SL1&CS4244[LEC]=1&CS4244[TUT]=3&ACC1002X[LEC]=X3&ACC1002X[TUT]=X05';
+/*const tt = 'https://nusmods.com/timetable/2016-2017/sem2?CS2107[LEC]=1&CS2107[TUT]=3&CS2102[LEC]=1&CS2102[TUT]=1&SSS1207[LEC]=SL1&CS4244[LEC]=1&CS4244[TUT]=3&ACC1002X[LEC]=X3&ACC1002X[TUT]=X05';
 const currSemUrl = 'https://nusmods.com/api/2016-2017/2/modules/';
 parse(tt, (err, obj) => {
   if (err) {
@@ -10,7 +10,7 @@ parse(tt, (err, obj) => {
   }
   console.log(obj);
 });
-
+*/
 // Takes in a user's nusmods url and returns
 function parse(ttUrl, cb) {
   let timetableDict = formatModuleList(url.parse(ttUrl, true).query);
@@ -87,3 +87,4 @@ function formatLessonType(lessonType) {
     return 'Tutorial';
   }
 }
+module.exports = {parse};
