@@ -1,18 +1,10 @@
+const api = require ('api');
+
 function TimeTable(){
     // 13*2 half an hour blocks starting at 8am, for 5 days a week
     // main function
     this.populateTimetableWithURL = function(url){
-        /* initiate API call to get back data of form:
-    
-        {module:
-            {type: "lecture",
-            timestart: 1900,
-            timeend: 2200,
-            Venue:X,
-            WeekText:every week,
-            DayText
-            }}
-        */
+        
         var result = this.queryAPI(url);
         for (var module in result){
             // Iterate through the components of each module
@@ -25,16 +17,16 @@ function TimeTable(){
     }
 
     this.addToTimetableArray = function(event){
-        if (event["timeend"] % 100 != 0){
-            event["timeend"]  += 20; // super hacky to make it 50
+        if (event["TimeEnd"] % 100 != 0){
+            event["TimeEnd"]  += 20; // super hacky to make it 50
         }
         indexesToAddTo = this.calculateIndexes(event);
         for (var i = 0; i < indexesToAddTo.length; i++){
             indexToAddTo = indexesToAddTo[i];
-            currentTime = this.timetableArray[indexToAddTo[1]][indexToAddTo[0]]["currentTime"];
-            currentDay = this.timetableArray[indexToAddTo[1]][indexToAddTo[0]]["currentDay"];
-            event["currentTime"] = currentTime;
-            event["currentDay"] = currentDay;
+            currentTime = this.timetableArray[indexToAddTo[1]][indexToAddTo[0]]["CurrentTime"];
+            currentDay = this.timetableArray[indexToAddTo[1]][indexToAddTo[0]]["CurrentDay"];
+            event["CurrentTime"] = currentTime;
+            event["CurrentDay"] = currentDay;
             this.timetableArray[indexToAddTo[1]][indexToAddTo[0]] = event;
         }
         return true;
@@ -106,8 +98,8 @@ function TimeTable(){
         for (var i = 0; i < y; i++) {
           arr[i] = new Array(x);
           for (var j = 0; j < x; j++){
-            arr[i][j] = {"currentTime":currentTime,
-                         "currentDay":this.dayOfWeekAsDay(i)};
+            arr[i][j] = {"CurrentTime":currentTime,
+                         "CurrentDay":this.dayOfWeekAsDay(i)};
             currentTime += 50;
           }
           currentTime = this.beginningTime;
@@ -121,8 +113,8 @@ function TimeTable(){
         for (var day = 0; day < this.timetableArray.length; day++) {
             for (var timeslot = 0; timeslot < this.timetableArray[0].length; timeslot++){
                 currentTimeSlot = this.timetableArray[day][timeslot];
-                if (currentTimeSlot["timestart"] == undefined){
-                    freeSlots[counter] = [currentTimeSlot["currentTime"],currentTimeSlot["currentDay"]];
+                if (currentTimeSlot["TimeStart"] == undefined){
+                    freeSlots[counter] = [currentTimeSlot["CurrentTime"],currentTimeSlot["CurrentDay"]];
                     counter += 1;
                 }
             }
