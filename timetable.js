@@ -4,21 +4,20 @@ function TimeTable(){
     // 13*2 half an hour blocks starting at 8am, for 5 days a week
     // main function
     this.populateTimetableWithURL = function(url){
-        
-        var result = this.queryAPI(url);
-        for (var module in result){
-            // Iterate through the components of each module
-            var moduleComponents = result[module];
-            for (var i = 0; i < moduleComponents.length; i++){
-                var event = moduleComponents[i];
-                this.addToTimetableArray(event);
-            }
+      return this.queryAPI(url, (err, userTimetable) => {
+        for (let mod in userTimetable) {
+          let moduleLessons = userTimetable[mod];
+          for (var i = 0; i < moduleLessons.length; i++){
+            let lesson = moduleLessons[i];
+            this.addToTimetableArray(lesson);
+          }
         }
+      });
     }
 
     this.addToTimetableArray = function(event){
-        if (event["TimeEnd"] % 100 != 0){
-            event["TimeEnd"]  += 20; // super hacky to make it 50
+        if (event["EndTime"] % 100 != 0){
+            event["EndTime"]  += 20; // super hacky to make it 50
         }
         indexesToAddTo = this.calculateIndexes(event);
         for (var i = 0; i < indexesToAddTo.length; i++){
@@ -33,10 +32,10 @@ function TimeTable(){
     }
 
     this.calculateIndexes = function(event){
-        xIndexStart = (event["timestart"] - this.beginningTime) / 50;
+        xIndexStart = (event["StartTime"] - this.beginningTime) / 50;
         yIndexStart = this.dayOfWeekAsInteger(event["DayText"]);
 
-        xIndexEnd = (event["timeend"] - this.beginningTime) / 50;
+        xIndexEnd = (event["EndTime"] - this.beginningTime) / 50;
         xIndexEnd -= 1; //offset.
         yIndexEnd = yIndexStart;
 
@@ -51,15 +50,13 @@ function TimeTable(){
         return array;
     }
 
-    this.queryAPI = function(url){
-        // returns the hash
+    this.queryAPI = function(url, cb){
         api.parse(url, (err, obj) => {
           if (err) {
-            console.log(err);
+            return cb(err);
           }
-          return (obj);
+          return cb(err, obj);
         });
-        console.log("Error occured");
     }
 
     this.createArray = function(x,y) {
