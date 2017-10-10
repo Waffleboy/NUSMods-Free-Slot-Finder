@@ -1,0 +1,5 @@
+Flask == 0.12.2
+requests == 2.14.2
+wget == 3.2
+beautifulsoup4 == 4.6.0
+python_dateutil == 2.6.1
