@@ -114,4 +114,7 @@ function TimeTable(){
 
 z = new TimeTable();
 z.populateTimetableWithURL("https://nusmods.com/timetable/2016-2017/sem2?BT4211[LEC]=1&BT4221[LEC]=1&BT4222[LEC]=1");
+z.populateTimetableWithURL("https://nusmods.com/timetable/2016-2017/sem2?ACC1002X[LEC]=X3&ACC1002X[TUT]=X10&MKT1003X[LEC]=W1&MKT1003X[TUT]=W03&ACC2002[SEC]=K5&ACC3605[SEC]=E3");
+z.populateTimetableWithURL("https://nusmods.com/timetable/2016-2017/sem2?CS2100[LAB]=3&CS2100[LEC]=1&CS2100[TUT]=1&ACC3611[SEC]=K1&MKT2401B[SEC]=B2");
+z.populateTimetableWithURL("https://nusmods.com/timetable/2016-2017/sem2?CS2107[LEC]=1&CS2107[TUT]=3&CS2102[LEC]=1&CS2102[TUT]=1&SSS1207[LEC]=SL1&CS4244[LEC]=1&CS4244[TUT]=3&ACC1002X[LEC]=X3&ACC1002X[TUT]=X05");
 console.log(z.findFreeSlots());

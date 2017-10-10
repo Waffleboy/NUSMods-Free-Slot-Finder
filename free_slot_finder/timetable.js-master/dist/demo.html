@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Vanilla javascript plugin for building nice responsive timetables">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timetable.js demo</title>
+    <link rel="stylesheet" href="styles/timetablejs.css">
+    <link rel="stylesheet" href="styles/demo.css">
+  </head>
+  <body>
+
+    <div class="hero-unit">
+      <h1>Timetable.js demo</h1>
+      <p>Vanilla javascript plugin for building nice responsive timetables. More info on <a href="https://github.com/Grible/timetable.js" target="_blank">Github</a>.</p>
+    </div>
+
+    <div class="timetable"></div>
+
+    <script src="scripts/timetable.js"></script>
+
+    <script>
+
+     var timetable = new Timetable();
+
+      timetable.setScope(7,0)
+      timetable.addLocations(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']);
+    
+    timetable.addEvent('Free Slot', 'Sunday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+    
+    timetable.addEvent('Free Slot', 'Monday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,8,59),{ url: '#' });
+    
+    timetable.addEvent('Free Slot', 'Monday', 
+        new Date(1900,1,1,15,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+    timetable.addEvent('Free Slot', 'Wednesday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,8,59),{ url: '#' });
+    
+    timetable.addEvent('Free Slot', 'Wednesday', 
+        new Date(1900,1,1,15,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+    
+    timetable.addEvent('Free Slot', 'Thursday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,18,29),{ url: '#' });
+    
+    timetable.addEvent('Free Slot', 'Thursday', 
+        new Date(1900,1,1,20,30), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+    
+    timetable.addEvent('Free Slot', 'Tuesday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+    
+    timetable.addEvent('Free Slot', 'Saturday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+    
+    timetable.addEvent('Free Slot', 'Friday', 
+        new Date(1900,1,1,7,0), 
+        new Date(1900,1,1,23,59),{ url: '#' });
+    
+
+
+      var renderer = new Timetable.Renderer(timetable);
+      renderer.draw('.timetable');
+    </script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-37417680-5');ga('send','pageview');
+    </script>
+</body>
+</html>

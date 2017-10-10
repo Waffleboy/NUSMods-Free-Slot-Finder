@@ -1,0 +1,1 @@
+{"ModuleCode": "MUA2161", "LockedModules": ["MUA2162"], "History": [{"Semester": 2}, {"Semester": 1}], "ModuleTitle": "Major Study 2A", "ParsedPrerequisite": "MUA1162", "ModmavenTree": {"name": "MUA2161", "children": {"name": "MUA1162", "children": []}}, "AcadYear": "2017/2018", "Department": "Yong Siew Toh Conservatory Of Music", "Prerequisite": "MUA1162", "ModuleCredit": "6"}

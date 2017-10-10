@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NUSMods Free Slot Finder</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic">        
+        <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/assets/css/animate.css">
+        <link rel="stylesheet" href="static/assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="static/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="static/assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+		<div class="c-form-container section-container section-container-image-bg">
+	        <div class="container">
+	        	
+	            <div class="row">
+	                <div class="col-sm-8 col-sm-offset-2 c-form section-description wow fadeIn">
+	                    <h1>NUSMods Free Slot Finder</h1>
+	                    <h3>Paste each NUSMods URL on a new line, and find mutual free slots with your friends.</h3>
+	                </div>
+	            </div>
+	            
+	            <div class="row">
+	            	<div class="col-sm-6 col-sm-offset-3 c-form-box wow fadeInUp">
+	            		
+                        <div class="c-form-bottom">
+		                    <form role="form" action="{{ url_for('timetable') }}" method="post">
+		                        <div class="form-group">
+		                        	<label for="c-form-message">
+		                    			<span class="label-text">NUSMods URLs:</span> 
+		                    			<span class="contact-error"></span>
+		                    		</label>
+		                        	<textarea name="message" placeholder="One URL per line.." class="c-form-message form-control" id="c-form-message"></textarea>
+		                        </div>
+		                        <button type="submit" class="btn">Find Free Slots!</button>
+		                    </form>
+	                    </div>
+	                    
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        
+
+        <!-- Javascript -->
+        <script src="static/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="static/assets/js/jquery.backstretch.min.js"></script>
+        <script src="static/assets/js/wow.min.js"></script>
+        <script src="static/assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="static/assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>
